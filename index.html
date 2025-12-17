@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Taxi Management Portal redirect" />
+    <title>Taxi Management Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg" aria-hidden="true">
+      <div class="blob blob--1"></div>
+      <div class="blob blob--2"></div>
+      <div class="grid"></div>
+    </div>
+
+    <main class="page">
+      <section class="hero" aria-label="Taxi Management Portal">
+        <p class="eyebrow">Taxi Management System</p>
+        <h1 class="title">Welcome to Taxi Management System</h1>
+        <p class="subtitle">
+          Streamlined taxi booking and management system for corporate employees. Request taxi services, track your bookings, and get instant updates.
+        </p>
+
+        <a
+          class="btn btn--primary"
+          href="https://nonwarrantable-excruciatingly-rubye.ngrok-free.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open Taxi Management System"
+        >
+          <span class="btn__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+              <path
+                d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3ZM5 5h7v2H7v10h10v-5h2v7H5V5Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <span class="btn__text">Taxi Management Portal</span>
+        </a>
+      </section>
+
+      <section class="features" aria-label="Features">
+        <h2 class="sectionTitle">Features</h2>
+        <div class="featureGrid">
+          <article class="card">
+            <h3 class="card__title">Easy Booking</h3>
+            <p class="card__text">
+              Submit taxi requests easily through our user-friendly interface. Just enter
+              your travel details and we'll handle the rest.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">Instant Notifications</h3>
+            <p class="card__text">
+              Get real-time updates via email and WhatsApp about your taxi request status
+              and booking confirmations.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">Track Status</h3>
+            <p class="card__text">
+              Monitor your taxi requests in real-time. View booking history and current
+              status from your personal dashboard.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p class="footer__text">© <span id="year"></span> Taxi Management System</p>
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+
+
