@@ -100,8 +100,21 @@
         padding: 54px 0 40px;
       }
 
+      @media (max-width: 480px) {
+        .page {
+          width: calc(100% - 32px);
+          padding: 36px 0 32px;
+        }
+      }
+
       .hero {
         padding: 10px 0 18px;
+      }
+
+      @media (max-width: 480px) {
+        .hero {
+          padding: 8px 0 16px;
+        }
       }
 
       .eyebrow {
@@ -118,24 +131,51 @@
         font-size: 13px;
       }
 
+      @media (max-width: 480px) {
+        .eyebrow {
+          font-size: 12px;
+          padding: 6px 10px;
+        }
+      }
+
       .title {
         margin: 10px 0 10px;
-        font-size: clamp(30px, 5.2vw, 46px);
-        line-height: 1.08;
+        font-size: clamp(28px, 5.2vw, 46px);
+        line-height: 1.1;
         letter-spacing: -0.5px;
         max-width: 22ch;
+      }
+
+      @media (max-width: 480px) {
+        .title {
+          max-width: 100%;
+          font-size: clamp(26px, 8vw, 32px);
+        }
       }
 
       .subtitle {
         margin: 0 0 18px;
         color: rgba(255, 255, 255, 0.74);
-        font-size: 15.5px;
+        font-size: clamp(14px, 4vw, 15.5px);
         line-height: 1.65;
         max-width: 60ch;
       }
 
+      @media (max-width: 480px) {
+        .subtitle {
+          max-width: 100%;
+          font-size: 14.5px;
+        }
+      }
+
       .features {
         margin-top: 26px;
+      }
+
+      @media (max-width: 480px) {
+        .features {
+          margin-top: 22px;
+        }
       }
 
       .sectionTitle {
@@ -145,10 +185,23 @@
         letter-spacing: 0.2px;
       }
 
+      @media (max-width: 480px) {
+        .sectionTitle {
+          font-size: 15.5px;
+          margin-bottom: 10px;
+        }
+      }
+
       .featureGrid {
         display: grid;
         grid-template-columns: 1fr;
         gap: 12px;
+      }
+
+      @media (max-width: 480px) {
+        .featureGrid {
+          gap: 10px;
+        }
       }
 
       /* Button (modern, non-classic) */
@@ -166,6 +219,22 @@
         transition: transform 150ms ease, box-shadow 150ms ease, filter 150ms ease;
         width: fit-content;
         max-width: 100%;
+      }
+
+      @media (max-width: 480px) {
+        .btn {
+          width: 100%;
+          padding: 14px 16px;
+          font-size: 14.5px;
+        }
+        .btn__icon {
+          width: 16px;
+          height: 16px;
+        }
+        .btn__icon svg {
+          width: 16px;
+          height: 16px;
+        }
       }
 
       .btn--primary {
@@ -210,10 +279,23 @@
         padding: 16px;
       }
 
+      @media (max-width: 480px) {
+        .card {
+          padding: 14px;
+          border-radius: 16px;
+        }
+      }
+
       .card__title {
         margin: 0 0 8px;
         font-size: 16px;
         letter-spacing: -0.1px;
+      }
+
+      @media (max-width: 480px) {
+        .card__title {
+          font-size: 15px;
+        }
       }
 
       .card__text {
@@ -223,11 +305,136 @@
         line-height: 1.6;
       }
 
+      @media (max-width: 480px) {
+        .card__text {
+          font-size: 13.5px;
+          line-height: 1.55;
+        }
+      }
+
+      .workflow {
+        margin-top: 28px;
+      }
+
+      @media (max-width: 480px) {
+        .workflow {
+          margin-top: 24px;
+        }
+      }
+
+      .workflowTitle {
+        margin: 0 0 16px;
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.9);
+        letter-spacing: -0.2px;
+      }
+
+      @media (max-width: 480px) {
+        .workflowTitle {
+          font-size: 17px;
+          margin-bottom: 12px;
+        }
+      }
+
+      .workflowList {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      @media (max-width: 480px) {
+        .workflowList {
+          gap: 12px;
+        }
+      }
+
+      .workflowItem {
+        display: flex;
+        gap: 14px;
+        padding: 16px;
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.06));
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 0 16px 46px rgba(0, 0, 0, 0.34);
+      }
+
+      @media (max-width: 480px) {
+        .workflowItem {
+          padding: 14px;
+          gap: 12px;
+          border-radius: 16px;
+        }
+      }
+
+      .workflowNumber {
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        font-weight: 900;
+        font-size: 16px;
+        color: rgba(8, 10, 18, 0.95);
+        background: linear-gradient(135deg, var(--accent), #ffd84d);
+        box-shadow: 0 8px 24px rgba(246, 196, 69, 0.2);
+      }
+
+      @media (max-width: 480px) {
+        .workflowNumber {
+          width: 32px;
+          height: 32px;
+          font-size: 14px;
+          border-radius: 10px;
+        }
+      }
+
+      .workflowContent {
+        flex: 1;
+      }
+
+      .workflowContent h3 {
+        margin: 0 0 6px;
+        font-size: 16px;
+        letter-spacing: -0.1px;
+      }
+
+      @media (max-width: 480px) {
+        .workflowContent h3 {
+          font-size: 15px;
+          margin-bottom: 5px;
+        }
+      }
+
+      .workflowContent p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 480px) {
+        .workflowContent p {
+          font-size: 13.5px;
+          line-height: 1.55;
+        }
+      }
+
       /* Footer */
       .footer {
         margin-top: 28px;
         padding-top: 16px;
         border-top: 1px solid rgba(255, 255, 255, 0.10);
+      }
+
+      @media (max-width: 480px) {
+        .footer {
+          margin-top: 24px;
+          padding-top: 14px;
+        }
       }
 
       .footer__text {
@@ -236,7 +443,20 @@
         color: rgba(255, 255, 255, 0.62);
       }
 
+      @media (max-width: 480px) {
+        .footer__text {
+          font-size: 12px;
+        }
+      }
+
       /* Responsive */
+      @media (min-width: 640px) and (max-width: 859px) {
+        .featureGrid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 14px;
+        }
+      }
+
       @media (min-width: 860px) {
         .page {
           padding-top: 72px;
@@ -253,6 +473,205 @@
           transition: none !important;
         }
       }
+
+      /* Safety Message Box */
+      .safety-message {
+        margin: 20px 0;
+        padding: 16px;
+        background: rgba(246, 196, 69, 0.1);
+        border: 1px solid rgba(246, 196, 69, 0.3);
+        border-radius: 12px;
+        text-align: center;
+      }
+
+      .safety-message p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 480px) {
+        .safety-message {
+          margin: 16px 0;
+          padding: 14px;
+          border-radius: 10px;
+        }
+        .safety-message p {
+          font-size: 14px;
+        }
+      }
+
+      /* Popup Modal Styles */
+      .popup-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(8px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .popup-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .popup-modal {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.08));
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 24px;
+        padding: 32px;
+        max-width: 500px;
+        width: calc(100% - 40px);
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+        transform: scale(0.9) translateY(20px);
+        transition: transform 0.3s ease;
+      }
+
+      .popup-overlay.active .popup-modal {
+        transform: scale(1) translateY(0);
+      }
+
+      @media (max-width: 480px) {
+        .popup-modal {
+          padding: 24px;
+          border-radius: 20px;
+        }
+      }
+
+      .popup-content {
+        display: none;
+      }
+
+      .popup-content.active {
+        display: block;
+      }
+
+      .popup-icon {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        background: linear-gradient(135deg, var(--accent), #ffd84d);
+        box-shadow: 0 12px 32px rgba(246, 196, 69, 0.3);
+      }
+
+      @media (max-width: 480px) {
+        .popup-icon {
+          width: 56px;
+          height: 56px;
+          margin-bottom: 16px;
+        }
+      }
+
+      .popup-icon svg {
+        width: 32px;
+        height: 32px;
+        color: rgba(8, 10, 18, 0.95);
+      }
+
+      @media (max-width: 480px) {
+        .popup-icon svg {
+          width: 28px;
+          height: 28px;
+        }
+      }
+
+      .popup-title {
+        margin: 0 0 12px;
+        font-size: 24px;
+        font-weight: 700;
+        text-align: center;
+        letter-spacing: -0.3px;
+      }
+
+      @media (max-width: 480px) {
+        .popup-title {
+          font-size: 20px;
+        }
+      }
+
+      .popup-message {
+        margin: 0 0 24px;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 15px;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      .popup-message strong {
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      @media (max-width: 480px) {
+        .popup-message {
+          font-size: 14px;
+          margin-bottom: 20px;
+        }
+      }
+
+      .popup-buttons {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+      }
+
+      @media (max-width: 480px) {
+        .popup-buttons {
+          flex-direction: column;
+        }
+      }
+
+      .popup-btn {
+        padding: 14px 24px;
+        border-radius: 14px;
+        font-weight: 600;
+        font-size: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        cursor: pointer;
+        transition: transform 150ms ease, box-shadow 150ms ease, filter 150ms ease;
+        letter-spacing: 0.2px;
+      }
+
+      @media (max-width: 480px) {
+        .popup-btn {
+          width: 100%;
+          padding: 12px 20px;
+          font-size: 14.5px;
+        }
+      }
+
+      .popup-btn--primary {
+        color: rgba(8, 10, 18, 0.95);
+        background: linear-gradient(135deg, var(--accent), #ffd84d);
+        box-shadow: 0 8px 24px rgba(246, 196, 69, 0.25);
+      }
+
+      .popup-btn--secondary {
+        color: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .popup-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+        filter: brightness(1.05);
+      }
+
+      .popup-btn:active {
+        transform: translateY(0);
+      }
     </style>
   </head>
   <body>
@@ -267,10 +686,15 @@
         <p class="eyebrow">Taxi Management System</p>
         <h1 class="title">Welcome to Taxi Management System</h1>
         <p class="subtitle">
-          Streamlined taxi booking and management system for corporate employees. Request taxi services, track your bookings, and get instant updates.
+          Streamlined taxi booking and management system for Employees. Request taxi services, track your bookings, and get instant updates.
         </p>
 
+        <div class="safety-message">
+          <p>✓ All pages are safe to use. The ngrok link is secure and safe to use.</p>
+        </div>
+
         <a
+          id="taxiPortalLink"
           class="btn btn--primary"
           href="https://nonwarrantable-excruciatingly-rubye.ngrok-free.dev"
           target="_blank"
@@ -318,18 +742,144 @@
         </div>
       </section>
 
+      <section class="workflow" aria-label="How It Works">
+        <h2 class="workflowTitle">How It Works</h2>
+        <ol class="workflowList">
+          <li class="workflowItem">
+            <div class="workflowNumber" aria-hidden="true">1</div>
+            <div class="workflowContent">
+              <h3>Login</h3>
+              <p>Login with your employee code and date of birth (DDMMYYYY format)</p>
+            </div>
+          </li>
+          <li class="workflowItem">
+            <div class="workflowNumber" aria-hidden="true">2</div>
+            <div class="workflowContent">
+              <h3>Submit Request</h3>
+              <p>Fill in your travel details - from location, to location, date, time, and purpose</p>
+            </div>
+          </li>
+          <li class="workflowItem">
+            <div class="workflowNumber" aria-hidden="true">3</div>
+            <div class="workflowContent">
+              <h3>Wait for Approval</h3>
+              <p>Admin will review your request and provide taxi details or response</p>
+            </div>
+          </li>
+          <li class="workflowItem">
+            <div class="workflowNumber" aria-hidden="true">4</div>
+            <div class="workflowContent">
+              <h3>Get Updates</h3>
+              <p>Receive notifications via email and WhatsApp with booking details</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
       <footer class="footer">
-        <p class="footer__text">© <span id="year"></span> Taxi Management System</p>
+        <p class="footer__text">© <span id="year"></span> Taxi Management System. All rights reserved.</p>
       </footer>
     </main>
 
+    <!-- Popup Modal -->
+    <div class="popup-overlay" id="popupOverlay">
+      <div class="popup-modal">
+        <!-- Step 1: Ngrok Warning -->
+        <div class="popup-content active" id="step1">
+          <div class="popup-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h2 class="popup-title">Ngrok Security Notice</h2>
+          <p class="popup-message">
+            You are about to access the Taxi Management Portal through ngrok. <strong>All pages of web are safe to used.</strong> Click next to continue.
+          </p>
+          <div class="popup-buttons">
+            <button class="popup-btn popup-btn--primary" onclick="showStep2()">Next Step</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Safe to Use Confirmation -->
+        <div class="popup-content" id="step2">
+          <div class="popup-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h2 class="popup-title">Visit Site is Safe to Used</h2>
+          <p class="popup-message">
+            When the ngrok page opens (first time), it will ask for permission. Please click <strong>"Visit Site"</strong> or <strong>"Visit Site is Safe to Used"</strong> button. The portal is opening and all pages are safe to used.
+          </p>
+          <div class="popup-buttons">
+            <button class="popup-btn popup-btn--primary" onclick="closePopup()">Visit Site</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Store the portal URL
+      const portalUrl = "https://nonwarrantable-excruciatingly-rubye.ngrok-free.dev";
+
+      // Popup Modal Functions - Make them global
+      window.showPopup = function() {
+        const overlay = document.getElementById("popupOverlay");
+        if (overlay) {
+          overlay.classList.add("active");
+          // Reset to step 1
+          const step1 = document.getElementById("step1");
+          const step2 = document.getElementById("step2");
+          if (step1) step1.classList.add("active");
+          if (step2) step2.classList.remove("active");
+        }
+      };
+
+      window.showStep2 = function() {
+        const step1 = document.getElementById("step1");
+        const step2 = document.getElementById("step2");
+        if (step1) step1.classList.remove("active");
+        if (step2) step2.classList.add("active");
+      };
+
+      window.closePopup = function() {
+        const overlay = document.getElementById("popupOverlay");
+        if (overlay) {
+          overlay.classList.remove("active");
+          // Store in localStorage that popup has been shown
+          localStorage.setItem("popupShown", "true");
+          // Navigate to the portal URL
+          window.open(portalUrl, "_blank", "noopener,noreferrer");
+        }
+      };
+
+      // Handle click on Taxi Management Portal link
+      window.addEventListener("DOMContentLoaded", function() {
+        const portalLink = document.getElementById("taxiPortalLink");
+        
+        if (portalLink) {
+          portalLink.addEventListener("click", function(e) {
+            const popupShown = localStorage.getItem("popupShown");
+            
+            // If popup hasn't been shown before, show it and prevent navigation
+            if (!popupShown) {
+              e.preventDefault();
+              e.stopPropagation();
+              e.stopImmediatePropagation();
+              showPopup();
+              return false;
+            }
+            // If popup has been shown, allow normal navigation (link will work normally)
+          });
+        } else {
+          console.error("Taxi Portal Link not found!");
+        }
+      });
     </script>
   </body>
 </html>
-
-
-
-
 
