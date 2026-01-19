@@ -689,10 +689,6 @@
           Streamlined taxi booking and management system for Employees. Request taxi services, track your bookings, and get instant updates.
         </p>
 
-        <div class="safety-message">
-          <p>✓ All pages are safe to use. The ngrok link is secure and safe to use.</p>
-        </div>
-
         <a
           id="taxiPortalLink"
           class="btn btn--primary"
@@ -784,26 +780,7 @@
     <!-- Popup Modal -->
     <div class="popup-overlay" id="popupOverlay">
       <div class="popup-modal">
-        <!-- Step 1: Ngrok Warning -->
-        <div class="popup-content active" id="step1">
-          <div class="popup-icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h2 class="popup-title">Ngrok Security Notice</h2>
-          <p class="popup-message">
-            You are about to access the Taxi Management Portal through ngrok. <strong>All pages of web are safe to used.</strong> Click next to continue.
-          </p>
-          <div class="popup-buttons">
-            <button class="popup-btn popup-btn--primary" onclick="showStep2()">Next Step</button>
-          </div>
-        </div>
-
-        <!-- Step 2: Safe to Use Confirmation -->
-        <div class="popup-content" id="step2">
+        <div class="popup-content active" id="popupContent">
           <div class="popup-icon">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -811,10 +788,10 @@
           </div>
           <h2 class="popup-title">Visit Site is Safe to Used</h2>
           <p class="popup-message">
-            When the ngrok page opens (first time), it will ask for permission. Please click <strong>"Visit Site"</strong> or <strong>"Visit Site is Safe to Used"</strong> button. The portal is opening and all pages are safe to used.
+            You are about to access the Taxi Management Portal. <strong>All pages are safe to use.</strong> When ngrok asks for permission, click <strong>"Visit Site"</strong> or <strong>"Visit Site is Safe to Used"</strong> button.
           </p>
           <div class="popup-buttons">
-            <button class="popup-btn popup-btn--primary" onclick="closePopup()">Visit Site</button>
+            <button class="popup-btn popup-btn--primary" onclick="closePopup()">OK</button>
           </div>
         </div>
       </div>
@@ -825,28 +802,35 @@
 
       // Store the portal URL
       const portalUrl = "https://nonwarrantable-excruciatingly-rubye.ngrok-free.dev";
+      
+      // Variable to store auto-redirect timer
+      let autoRedirectTimer = null;
 
       // Popup Modal Functions - Make them global
       window.showPopup = function() {
         const overlay = document.getElementById("popupOverlay");
         if (overlay) {
           overlay.classList.add("active");
-          // Reset to step 1
-          const step1 = document.getElementById("step1");
-          const step2 = document.getElementById("step2");
-          if (step1) step1.classList.add("active");
-          if (step2) step2.classList.remove("active");
+          
+          // Clear any existing timer
+          if (autoRedirectTimer) {
+            clearTimeout(autoRedirectTimer);
+          }
+          
+          // Auto-redirect after 3 seconds if user doesn't click OK
+          autoRedirectTimer = setTimeout(function() {
+            closePopup();
+          }, 3000);
         }
       };
 
-      window.showStep2 = function() {
-        const step1 = document.getElementById("step1");
-        const step2 = document.getElementById("step2");
-        if (step1) step1.classList.remove("active");
-        if (step2) step2.classList.add("active");
-      };
-
       window.closePopup = function() {
+        // Clear the auto-redirect timer if user clicks OK
+        if (autoRedirectTimer) {
+          clearTimeout(autoRedirectTimer);
+          autoRedirectTimer = null;
+        }
+        
         const overlay = document.getElementById("popupOverlay");
         if (overlay) {
           overlay.classList.remove("active");
@@ -863,17 +847,11 @@
         
         if (portalLink) {
           portalLink.addEventListener("click", function(e) {
-            const popupShown = localStorage.getItem("popupShown");
-            
-            // If popup hasn't been shown before, show it and prevent navigation
-            if (!popupShown) {
-              e.preventDefault();
-              e.stopPropagation();
-              e.stopImmediatePropagation();
-              showPopup();
-              return false;
-            }
-            // If popup has been shown, allow normal navigation (link will work normally)
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            showPopup();
+            return false;
           });
         } else {
           console.error("Taxi Portal Link not found!");
