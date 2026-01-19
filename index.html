@@ -790,9 +790,7 @@
           <p class="popup-message">
             You are about to access the Taxi Management Portal. <strong>All pages are safe to use.</strong> When ngrok asks for permission, click <strong>"Visit Site"</strong> or <strong>"Visit Site is Safe to Used"</strong> button.
           </p>
-          <div class="popup-buttons">
-            <button class="popup-btn popup-btn--primary" onclick="closePopup()">OK</button>
-          </div>
+          <p style="margin: 12px 0 0; text-align: center; color: rgba(255, 255, 255, 0.6); font-size: 13px;" id="countdownText"></p>
         </div>
       </div>
     </div>
@@ -803,32 +801,71 @@
       // Store the portal URL
       const portalUrl = "https://nonwarrantable-excruciatingly-rubye.ngrok-free.dev";
       
-      // Variable to store auto-redirect timer
+      // Variable to store auto-redirect timer and countdown interval
       let autoRedirectTimer = null;
+      let countdownInterval = null;
+      let countdownSeconds = 3;
 
       // Popup Modal Functions - Make them global
       window.showPopup = function() {
         const overlay = document.getElementById("popupOverlay");
+        const countdownText = document.getElementById("countdownText");
+        
         if (overlay) {
           overlay.classList.add("active");
           
-          // Clear any existing timer
+          // Clear any existing timers
           if (autoRedirectTimer) {
             clearTimeout(autoRedirectTimer);
           }
+          if (countdownInterval) {
+            clearInterval(countdownInterval);
+          }
+          
+          // Reset countdown
+          countdownSeconds = 3;
+          
+          // Start countdown display
+          if (countdownText) {
+            countdownText.textContent = "Redirecting in 3 seconds...";
+          }
+          
+          countdownInterval = setInterval(function() {
+            countdownSeconds--;
+            if (countdownText) {
+              if (countdownSeconds > 0) {
+                countdownText.textContent = "Redirecting in " + countdownSeconds + " second" + (countdownSeconds > 1 ? "s" : "") + "...";
+              } else {
+                countdownText.textContent = "Redirecting now...";
+              }
+            }
+          }, 1000);
           
           // Auto-redirect after 3 seconds if user doesn't click OK
           autoRedirectTimer = setTimeout(function() {
+            if (countdownInterval) {
+              clearInterval(countdownInterval);
+              countdownInterval = null;
+            }
             closePopup();
           }, 3000);
         }
       };
 
       window.closePopup = function() {
-        // Clear the auto-redirect timer if user clicks OK
+        // Clear the auto-redirect timer and countdown if user clicks OK
         if (autoRedirectTimer) {
           clearTimeout(autoRedirectTimer);
           autoRedirectTimer = null;
+        }
+        if (countdownInterval) {
+          clearInterval(countdownInterval);
+          countdownInterval = null;
+        }
+        
+        const countdownText = document.getElementById("countdownText");
+        if (countdownText) {
+          countdownText.textContent = "";
         }
         
         const overlay = document.getElementById("popupOverlay");
@@ -860,4 +897,6 @@
     </script>
   </body>
 </html>
+
+
 
